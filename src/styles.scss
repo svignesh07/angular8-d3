@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* global styles; also you can import other style files here */
+
+// Theme variables, must be included before the libraries to allow overriding defaults
+@import "theme/theme-variables";
+
+// 3rd party libraries
+@import "~bootstrap/scss/bootstrap";
+
+// Theme customization
+@import "theme/theme";
