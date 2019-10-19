@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
+import { SharedModule } from '../shared';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

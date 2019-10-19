@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { Shell } from '@app/shell/shell.service';
+import { Shell } from '../shell/shell.service';
 
 const routes: Routes = [
   Shell.childRoutes([

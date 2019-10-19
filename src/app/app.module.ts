@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { SharedModule } from '@app/shared';
+
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [
