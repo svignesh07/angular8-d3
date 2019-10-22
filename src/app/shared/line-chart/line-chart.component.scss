@@ -1,18 +1,108 @@
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+$chart-blue : #6bb7c7;
+
+.chart {
+  padding: 1em;
 }
 
-.axis-title {
-  fill: none;
-  stroke: black;
-  stroke-width: 0.5px;
+.chart--headline {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+
+    bottom: 133%;
+    left: 50%;
+
+    width: 25%;
+    margin: 0 0 0 -12.5%;
+  }
 }
 
-.line {
-  fill: none;
-  stroke: #123456;
-  stroke-width: 1.5px;
+.charts--container {
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    max-width: 700px;
+
+    left : 50%;
+    top : 10%;
+    margin: 1em auto;
+  }
+}
+
+.charts--headline {
+  text-align: center;
+  color: #444;
+  background-color: #fff;
+  padding: 1em;
+}
+
+.lineChart--area {
+  fill: url(#lineChart--gradientBackgroundArea);
+}
+
+.lineChart--areaLine {
+  fill   : none;
+  stroke : $chart-blue;
+  stroke-width: 3;
+}
+
+.lineChart--bubble--label {
+  fill: $chart-blue;
+  stroke: $chart-blue;
+  font-style: italic;
+}
+
+.lineChart--bubble--value {
+  fill: #fff;
+  stroke: #fff;
+}
+.lineChart--circle {
+  fill: $chart-blue;
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.lineChart--circle__highlighted {
+  fill: #6bb7c7;
+  stroke: adjust-lightness( $chart-blue, -15 );
+}
+
+.lineChart--gradientBackgroundArea--top {
+  stop-color   : $chart-blue;
+  stop-opacity : 0.1;
+}
+
+.lineChart--gradientBackgroundArea--bottom {
+  stop-color   : $chart-blue;
+  stop-opacity : 0.6;
+}
+
+.lineChart--xAxisTicks,
+.lineChart--xAxis,
+.lineChart--yAxisTicks {
+  .domain {
+    display: none;
+  }
+}
+
+.lineChart--xAxis {
+  .tick {
+    line {
+      display: none;
+    }
+  }
+}
+
+.lineChart--xAxisTicks,
+.lineChart--yAxisTicks {
+  .tick {
+    line {
+      fill: none;
+
+      stroke-width: 1;
+      stroke-dasharray: 2,2;
+    }
+  }
 }

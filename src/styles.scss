@@ -8,3 +8,7 @@
 
 // Theme customization
 @import "theme/theme";
+
+body {
+  padding-top: $nav-link-height + $nav-link-padding-y * 2; // Height of the navbar
+}
