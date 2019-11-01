@@ -1,108 +1,112 @@
 $chart-blue : #6bb7c7;
+// $chart-blue : #f8e3cc;
 
-.chart {
-  padding: 1em;
-}
+.charts {
+  &--container {
+    width: 100%;
 
-.chart--headline {
-  position: relative;
+    @media screen and (min-width: 700px) {
+      max-width: 700px;
 
-  &:before {
-    position: absolute;
-    content: '';
+      left : 50%;
+      top : 10%;
+      margin: 1em auto;
+    }
 
-    bottom: 133%;
-    left: 50%;
+    .chart {
+      padding: 1em;
+      &--headline {
+        position: relative;
 
-    width: 25%;
-    margin: 0 0 0 -12.5%;
+        &:before {
+          position: absolute;
+          content: '';
+
+          bottom: 133%;
+          left: 50%;
+
+          width: 25%;
+          margin: 0 0 0 -12.5%;
+        }
+      }
+    }
+
+  }
+  &--headline {
+    text-align: center;
+    color: #444;
+    background-color: #fff;
+    padding: 1em;
   }
 }
 
-.charts--container {
-  width: 100%;
-
-  @media screen and (min-width: 700px) {
-    max-width: 700px;
-
-    left : 50%;
-    top : 10%;
-    margin: 1em auto;
+.lineChart {
+  &--svg {
+    overflow:visible;
   }
-}
-
-.charts--headline {
-  text-align: center;
-  color: #444;
-  background-color: #fff;
-  padding: 1em;
-}
-
-.lineChart--area {
-  fill: url(#lineChart--gradientBackgroundArea);
-}
-
-.lineChart--areaLine {
-  fill   : none;
-  stroke : $chart-blue;
-  stroke-width: 3;
-}
-
-.lineChart--bubble--label {
-  fill: $chart-blue;
-  stroke: $chart-blue;
-  font-style: italic;
-}
-
-.lineChart--bubble--value {
-  fill: #fff;
-  stroke: #fff;
-}
-.lineChart--circle {
-  fill: $chart-blue;
-  stroke: #fff;
-  stroke-width: 3;
-}
-
-.lineChart--circle__highlighted {
-  fill: #6bb7c7;
-  stroke: adjust-lightness( $chart-blue, -15 );
-}
-
-.lineChart--gradientBackgroundArea--top {
-  stop-color   : $chart-blue;
-  stop-opacity : 0.1;
-}
-
-.lineChart--gradientBackgroundArea--bottom {
-  stop-color   : $chart-blue;
-  stop-opacity : 0.6;
-}
-
-.lineChart--xAxisTicks,
-.lineChart--xAxis,
-.lineChart--yAxisTicks {
-  .domain {
-    display: none;
+  &--area {
+    fill: url(#lineChart--gradientBackgroundArea);
   }
-}
-
-.lineChart--xAxis {
-  .tick {
-    line {
+  &--areaLine {
+    fill   : none;
+    stroke : $chart-blue;
+    stroke-width: 3;
+  }
+  &--bubble {
+    z-index: 1;
+    &--label {
+      fill: $chart-blue;
+      stroke: $chart-blue;
+      font-style: italic;
+    }
+    &--value {
+      fill: #fff;
+      stroke: #fff;
+    }
+  }
+  &--circle {
+    fill: $chart-blue;
+    stroke: #fff;
+    stroke-width: 3;
+    &--highlighted {
+      fill: $chart-blue;
+      stroke: adjust-lightness( $chart-blue, -15 );
+    }
+  }
+  &--gradientBackgroundArea {
+    &--top {
+      stop-color   : $chart-blue;
+      stop-opacity : 0.1;
+    }
+    &--bottom {
+      stop-color   : $chart-blue;
+      stop-opacity : 0.6;
+    }
+  }
+  &--xAxisTicks,
+  &--xAxis,
+  &--yAxisTicks {
+    .domain {
       display: none;
     }
   }
-}
+  &--xAxis {
+    .tick {
+      line {
+        display: none;
+      }
+    }
+  }
 
-.lineChart--xAxisTicks,
-.lineChart--yAxisTicks {
-  .tick {
-    line {
-      fill: none;
+  &--xAxisTicks,
+  &--yAxisTicks {
+    .tick {
+      line {
+        fill: none;
 
-      stroke-width: 1;
-      stroke-dasharray: 2,2;
+        stroke-width: 1;
+        stroke-dasharray: 2,2;
+      }
     }
   }
 }

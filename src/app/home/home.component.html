@@ -1,14 +1,7 @@
 <div class="container-fluid">
-    <div class="clearfix"></div><br>
-  <div class="btn-group" role="group" aria-label="frequency filters">
-    <button type="button" class="btn btn-secondary">Daily</button>
-    <button type="button" class="btn btn-secondary">3 Months</button>
-    <button type="button" class="btn btn-secondary">6 Months</button>
-    <button type="button" class="btn btn-secondary">12 Months</button>
-  </div>
-  <div class="clearfix"></div><br>
-  <div *ngIf="isLoading; else showCharts">
-      <app-loader [isLoading]="isLoading"></app-loader>
+  <app-date-filters (dateFilterChangeEvent)="onDateFilterChange($event)"></app-date-filters>
+  <div *ngIf="is_loading; else showCharts">
+      <app-loader [is_loading]="is_loading"></app-loader>
   </div>
   <div class="clearfix"></div><br>
   <ng-template #showCharts>

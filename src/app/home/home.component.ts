@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as d3Fetch from 'd3-fetch';
 import * as d3TimeFormat from 'd3-time-format';
 
@@ -7,34 +7,33 @@ import * as d3TimeFormat from 'd3-time-format';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  isLoading = false;
+export class HomeComponent {
+  is_loading = false;
   data: any;
-  sales_data: any;
-  new_sales_data: any;
-  payments_data: any;
-  refunds_data: any;
+  sales_data: Array<Object>;
+  new_sales_data: Array<Object>;
+  payments_data: Array<Object>;
+  refunds_data: Array<Object>;
 
   constructor() {}
 
-  ngOnInit() {
-    this.isLoading = true;
+  // Update charts data with new data
+  onDateFilterChange(event) {
 
+    this.is_loading = true;
     var parseDate = d3TimeFormat.timeParse("%Y-%m-%d");
 
     d3Fetch.json("../assets/data/line-chart.json").then((response) => {
-      this.data = response.map(( datum ) => {
-        datum.date = parseDate(datum.date);
-        return datum;
-      });
 
-      this.sales_data = this.data;
-      this.new_sales_data = this.data;
-      this.payments_data = this.data;
-      this.refunds_data = this.data;
+      Object.entries(response[event]).forEach(([key,value]) => {
+        this[key] = value.map(( datum ) => {
+          datum.date = parseDate(datum.date);
+          return datum;
+        });
+      })
 
-      this.isLoading = false;
+      this.is_loading = false;
     });
-
   }
+
 }

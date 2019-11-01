@@ -1,0 +1,5 @@
+<div class="social-btns">
+  <a target="_blank" href="{{site.value}}" *ngFor="let site of sites | keyvalue" class="btn {{site.key}}">
+    <img class="icon" src="assets/images/social/{{site.key}}.svg" />
+  </a>
+</div>

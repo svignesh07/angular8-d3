@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular8-d3');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular8-d3 app is running!');
-  });
 });

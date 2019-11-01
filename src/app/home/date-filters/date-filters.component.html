@@ -1,0 +1,26 @@
+<div class="btn-group date-filters" role="group" aria-label="frequency filters">
+  <button type="button"
+          class="btn btn-outline-secondary"
+          [class.active]="date_filter === 'daily'"
+          (click)="changeFilter('daily')">
+          Daily
+        </button>
+  <button type="button"
+          class="btn btn-outline-secondary"
+          [class.active]="date_filter === '3_months'"
+          (click)="changeFilter('3_months')">
+          3 Months
+        </button>
+  <button type="button"
+          class="btn btn-outline-secondary"
+          [class.active]="date_filter === '6_months'"
+          (click)="changeFilter('6_months')">
+          6 Months
+        </button>
+  <button type="button"
+          class="btn btn-outline-secondary"
+          [class.active]="date_filter === '12_months'"
+          (click)="changeFilter('12_months')">
+          12 Months
+        </button>
+</div>

@@ -7,7 +7,6 @@ import * as d3Array from 'd3-array';
 import * as d3Interpolate from 'd3-interpolate';
 import * as d3Transition from 'd3-transition';
 import * as d3Axis from 'd3-axis';
-import * as d3Ease from 'd3-ease';
 
 @Component({
   selector: 'app-line-chart',
@@ -34,17 +33,25 @@ export class LineChartComponent implements OnInit {
   DURATION = 1500;
   DELAY = 500;
 
+  startData: any; // Initial Data for the Transition
+
   constructor() { }
 
   ngOnInit() {
     if (!!this.chartData) {
+      this.startData = this.chartData.map(( datum ) => {
+        return {
+          date  : datum.date,
+          value : Math.min(...this.chartData.map((d) => d.value))
+        };
+      });
+
       setTimeout(() => {
         this.initSvg();
         this.initAxis();
         this.drawAxis();
         this.drawLine();
         this.drawArea();
-        this.drawCircles();
       }, 100);
     }
   }
@@ -91,15 +98,15 @@ export class LineChartComponent implements OnInit {
       .y1((d) => { return this.y(d.value); });
 
     this.svg.append('path')
-      .datum(this.chartData)
+      .datum(this.startData)
       .attr('class', 'lineChart--area')
       .attr('d', this.area);
 
-      // d3Transition.transition().select('.lineChart--area')
-      // .transition()
-      // .duration(this.DURATION)
-      // .delay(this.DURATION / 2)
-      // .attrTween('d', this.tween(this.chartData, this.line));
+      d3Transition.transition().select(`svg#${this.elementId} .lineChart--area`)
+      .transition()
+      .duration(this.DURATION)
+      .delay(this.DURATION / 2)
+      .attrTween('d', this.tween(this.chartData, this.area));
   }
 
   private drawLine() {
@@ -108,13 +115,31 @@ export class LineChartComponent implements OnInit {
       .y((d: any) => this.y(d.value));
 
     this.svg.append('path')
-      .datum(this.chartData)
+      .datum(this.startData)
       .attr('class', 'lineChart--areaLine')
       .attr('d', this.line);
+
+      d3Transition.transition().select(`svg#${this.elementId} .lineChart--areaLine`)
+      .transition()
+      .duration(this.DURATION)
+      .delay(this.DURATION)
+      .attrTween('d', this.tween(this.chartData, this.line))
+      .on("end", () => {
+        this.drawCircles();
+      });
+
 
   }
 
   private drawCircles() {
+    this.svg.append('g');
+    this.chartData.forEach(( datum, index) => {
+      this.drawCircle( datum, index );
+    } );
+
+  }
+
+  private drawCircle( datum, index ) {
     this.svg.selectAll(".dot")
       .data(this.chartData)
       .enter().append("circle") // Uses the enter().append() method
@@ -128,7 +153,7 @@ export class LineChartComponent implements OnInit {
       .attr("r", 5)
       .on("mouseenter", (d, i, nodes) => {
         d3.select(nodes[i])
-          .attr('class', 'lineChart--circle lineChart--circle__highlighted')
+          .attr('class', 'lineChart--circle lineChart--circle--highlighted')
           .attr('r', 7);
         this.showCircleDetail(d);
       })
@@ -139,8 +164,18 @@ export class LineChartComponent implements OnInit {
             'lineChart--circle'
           )
           .attr('r', 6);
-        this.hideCircleDetails()
-      });
+        this.hideCircleDetails();
+      })
+      .on( 'click touch', function( d ) {
+        if ( d.active ) {
+          this.showCircleDetail( d )
+        } else {
+          this.hideCircleDetails();
+        }
+      })
+      .transition()
+      .delay( this.DURATION / 10 * index )
+      .attr( 'r', 6 );
   }
 
   private tween(b, callback) {
@@ -150,13 +185,12 @@ export class LineChartComponent implements OnInit {
     };
   }
 
-
   private hideCircleDetails() {
     d3.selectAll('.lineChart--bubble').remove();
   }
 
   private showCircleDetail(data) {
-    var details = d3.select('svg').append('g')
+    var details = d3.select(`svg#${this.elementId}`).append('g')
       .attr('class', 'lineChart--bubble')
       .attr(
         'transform', () => {
