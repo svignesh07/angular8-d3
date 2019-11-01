@@ -20,6 +20,7 @@ export class LineChartComponent implements OnInit {
   @Input() chartTitle: any;
   @Input() chartData: any;
   @ViewChild('container', { static: true }) container: ElementRef;
+  is_loading = true;
 
   private margin = { top: 20, right: 20, bottom: 30, left: 50 };
   private width: number;
@@ -39,6 +40,7 @@ export class LineChartComponent implements OnInit {
 
   ngOnInit() {
     if (!!this.chartData) {
+      this.is_loading = false;
       this.startData = this.chartData.map(( datum ) => {
         return {
           date  : datum.date,

@@ -8,17 +8,6 @@ $chart-blue : #6bb7c7;
       padding: 1em;
       &--headline {
         position: relative;
-
-        &:before {
-          position: absolute;
-          content: '';
-
-          bottom: 133%;
-          left: 50%;
-
-          width: 25%;
-          margin: 0 0 0 -12.5%;
-        }
       }
     }
 

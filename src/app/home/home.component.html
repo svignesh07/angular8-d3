@@ -1,35 +1,58 @@
 <div class="container-fluid">
   <app-date-filters (dateFilterChangeEvent)="onDateFilterChange($event)"></app-date-filters>
-  <div *ngIf="is_loading; else showCharts">
-      <app-loader [is_loading]="is_loading"></app-loader>
-  </div>
   <div class="clearfix"></div><br>
-  <ng-template #showCharts>
+  <div class="row" *ngIf="activeTab === 'daily'; else barLineChart">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <app-line-chart [elementId]="'sales'"
+                      [chartTitle]="'Sales'"
+                      [chartData]="sales_data">
+      </app-line-chart>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <app-line-chart [elementId]="'new_sales'"
+                      [chartTitle]="'New Sales'"
+                      [chartData]="new_sales_data">
+      </app-line-chart>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <app-line-chart [elementId]="'payment_data'"
+                      [chartTitle]="'Payments'"
+                      [chartData]="payments_data">
+      </app-line-chart>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+      <app-line-chart [elementId]="'refunds_data'"
+                      [chartTitle]="'Refunds'"
+                      [chartData]="refunds_data">
+      </app-line-chart>
+    </div>
+  </div>
+  <ng-template #barLineChart>
     <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-          <app-line-chart [elementId]="'sales'"
-                          [chartTitle]="'Sales'"
-                          [chartData]="sales_data">
-          </app-line-chart>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <app-bar-line-chart [elementId]="'sales'"
+                              [chartTitle]="'Sales'"
+                              [chartData]="sales_data">
+          </app-bar-line-chart>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-          <app-line-chart [elementId]="'new_sales'"
-                          [chartTitle]="'New Sales'"
-                          [chartData]="new_sales_data">
-          </app-line-chart>
+          <app-bar-line-chart [elementId]="'new_sales'"
+                              [chartTitle]="'New Sales'"
+                              [chartData]="new_sales_data">
+          </app-bar-line-chart>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-          <app-line-chart [elementId]="'payment_data'"
-                          [chartTitle]="'Payments'"
-                          [chartData]="payments_data">
-          </app-line-chart>
+          <app-bar-line-chart [elementId]="'payment_data'"
+                              [chartTitle]="'Payments'"
+                              [chartData]="payments_data">
+          </app-bar-line-chart>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-          <app-line-chart [elementId]="'refunds_data'"
-                          [chartTitle]="'Refunds'"
-                          [chartData]="refunds_data">
-          </app-line-chart>
+          <app-bar-line-chart [elementId]="'refunds_data'"
+                              [chartTitle]="'Refunds'"
+                              [chartData]="refunds_data">
+          </app-bar-line-chart>
         </div>
-      </div>
-  </ng-template>
+    </div>
+    </ng-template>
 </div>

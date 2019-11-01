@@ -1,0 +1,25 @@
+$chart-blue : #6bb7c7;
+
+.charts {
+  &--container {
+    width: 100%;
+    margin: 1em auto;
+    .chart {
+      padding: 1em;
+      &--headbar {
+        position: relative;
+      }
+    }
+
+  }
+  &--headbar {
+    text-align: center;
+    color: #444;
+    background-color: #fff;
+    padding: 1em;
+  }
+}
+
+.bar-line-label {
+  font-size: 0.75em;
+}

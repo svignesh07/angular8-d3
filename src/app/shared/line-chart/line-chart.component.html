@@ -2,14 +2,19 @@
   <div class="card chart">
     <h5 class="chart--headline">{{chartTitle}}</h5>
     <div id="lineChart" #container>
-      <svg [id]="elementId" class="lineChart--svg" [attr.width]="container.offsetWidth" height="250">
-        <defs>
-          <linearGradient id="lineChart--gradientBackgroundArea" x1="0" x2="0" y1="0" y2="1">
-            <stop class="lineChart--gradientBackgroundArea--top" offset="0%" />
-            <stop class="lineChart--gradientBackgroundArea--bottom" offset="100%" />
-          </linearGradient>
-        </defs>
-      </svg>
+        <div *ngIf="is_loading; else showChart">
+          <app-loader [is_loading]="is_loading"></app-loader>
+        </div>
+        <ng-template #showChart>
+          <svg [id]="elementId" class="lineChart--svg" [attr.width]="container.offsetWidth" height="250">
+            <defs>
+              <linearGradient id="lineChart--gradientBackgroundArea" x1="0" x2="0" y1="0" y2="1">
+                <stop class="lineChart--gradientBackgroundArea--top" offset="0%" />
+                <stop class="lineChart--gradientBackgroundArea--bottom" offset="100%" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </ng-template>
     </div>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<div class="charts--container">
+  <div class="card chart">
+    <h5 class="chart--headline">{{chartTitle}}</h5>
+    <div id="barChart" #container>
+      <div *ngIf="is_loading; else showChart">
+        <app-loader [is_loading]="is_loading"></app-loader>
+      </div>
+      <ng-template #showChart>
+        <svg [id]="elementId" class="barChart--svg" [attr.width]="container.offsetWidth" height="250">
+          </svg>
+      </ng-template>
+    </div>
+  </div>
+</div>

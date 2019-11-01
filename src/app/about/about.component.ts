@@ -22,9 +22,10 @@ export class AboutComponent {
   items = {};
 
   showItems() {
-    this.items = {"Technologies": "Angular 8, Bootstrap 4, D3 V5, Jasmine, Karma",
-                  "Javascript": "ES6, TypeScript, Bootstrap 4, D3 V5, Jasmine, Karma",
+    this.items = {"Front end framework": "Angular 8",
+                  "Script": "TypeScript, ES6",
                   "Responsive Framework": "Bootstrap 4",
+                  "Charting Library": "D3 V5",
                   "Testing Framework": "Jasmine, Karma(test runner)",
                   "CSS Preprocessor": "SCSS"};
   }

@@ -14,7 +14,7 @@ export class DateFiltersComponent implements OnInit {
 
   ngOnInit() {
     // Emit the initial date_filter value to Home Component
-    this.date_filter = "daily";
+    this.date_filter = "3_months";
     this.dateFilterChangeEvent.emit(this.date_filter);
   }
 
