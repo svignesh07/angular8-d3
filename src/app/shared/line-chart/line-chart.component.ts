@@ -151,13 +151,13 @@ export class LineChartComponent implements OnInit {
         return this.y(d.value);
       })
       .attr("r", 5)
-      .on("mouseenter", (d, i, nodes) => {
+      .on("mouseenter touchstart", (d, i, nodes) => {
         d3.select(nodes[i])
           .attr('class', 'lineChart--circle lineChart--circle--highlighted')
           .attr('r', 7);
         this.showCircleDetail(d);
       })
-      .on("mouseout", (d, i, nodes) => {
+      .on("mouseout touchstop", (d, i, nodes) => {
         d3.select(nodes[i])
           .attr(
             'class',
@@ -165,13 +165,6 @@ export class LineChartComponent implements OnInit {
           )
           .attr('r', 6);
         this.hideCircleDetails();
-      })
-      .on( 'click touch', function( d ) {
-        if ( d.active ) {
-          this.showCircleDetail( d )
-        } else {
-          this.hideCircleDetails();
-        }
       })
       .transition()
       .delay( this.DURATION / 10 * index )
