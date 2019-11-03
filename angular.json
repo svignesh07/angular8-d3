@@ -122,8 +122,17 @@
               "devServerTarget": "angular8-d3:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://svignesh07.github.io/angular8-d3/",
+            "name": "svignesh07",
+            "email": "s.vignesh07@gmail.com"
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular8-d3"
 }

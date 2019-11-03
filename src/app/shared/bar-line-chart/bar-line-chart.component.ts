@@ -50,8 +50,8 @@ export class BarLineChartComponent {
   private bar: any;
   private width: number;
   private height: number;
-  private x: number;
-  private y: number;
+  private x: any;
+  private y: any;
   greyColor = "#898989";
   barColor = d3ScaleChromatic.interpolateInferno(0.8);
   highlightColor = d3ScaleChromatic.interpolateInferno(0.9);
@@ -114,15 +114,15 @@ export class BarLineChartComponent {
         return d.value === d3Array.extent(this.chartData, d => { return d.value; })
           ? this.highlightColor : this.barColor
       })
-      .attr("x", d => { return this.x(d.year); })
+      .attr("x", d => this.x(d.year))
       .attr("width", this.x.bandwidth())
       .attr("y", d => { return this.height; })
       .attr("height", 0)
       .transition()
       .duration(750)
       .delay((d, i) => i * 150)
-      .attr("y", d => { return this.y(d.value); })
-      .attr("height", d => { return this.height - this.y(d.value); });
+      .attr("y", d =>  this.y(d.value))
+      .attr("height", d => this.height - this.y(d.value));
 
     this.svg.selectAll(".label")
       .data(this.chartData)
@@ -135,13 +135,13 @@ export class BarLineChartComponent {
         return d.value === d3Array.extent(this.chartData, d => { return d.value; })
           ? this.highlightColor : this.greyColor
       })
-      .attr("y", d => { return this.height; })
+      .attr("y", () =>  this.height)
       .attr("height", 0)
       .transition()
       .duration(750)
-      .delay((d, i) => { return i * 150; })
+      .delay((d, i) =>  i * 150)
       .text(d => d.value)
-      .attr("y", d => (this.y(d.value) + .1))
+      .attr("y", (d) => this.y(d.value) + .1)
       .attr("dx", "-.5em")
       .attr("dy", "-.7em")
   }

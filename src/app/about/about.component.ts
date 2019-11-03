@@ -20,7 +20,7 @@ import {trigger, transition, style, animate, query, stagger} from '@angular/anim
 })
 export class AboutComponent {
   items = {};
-
+  itemsLength: number;
   showItems() {
     this.items = {"Front end framework": "Angular 8",
                   "Script": "TypeScript, ES6",
@@ -31,6 +31,7 @@ export class AboutComponent {
   }
 
   constructor() {
+    this.itemsLength = Object.keys(this.items).length;
     this.showItems();
   }
 }

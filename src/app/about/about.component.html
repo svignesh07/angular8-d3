@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="jumbotron">
-    <div [@listAnimation]="items.length">
+    <div [@listAnimation]="itemsLength">
       <div *ngFor="let item of items | keyvalue">
         <strong>{{ item.key }}:</strong>
         <span> {{ item.value }}</span>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as d3TimeFormat from 'd3-time-format';
-import { FetchDataService } from '../services/fetch-data.service';
+import { FetchDataService } from '../services/fetch-data.service'
 
 @Component({
   selector: 'app-home',
@@ -29,7 +29,7 @@ export class HomeComponent {
 
     if(!!this.data) {
       let clonedData = JSON.parse(JSON.stringify(this.data)); // Javascript Deep Copy
-      Object.entries(clonedData[event]).forEach(([key,value]) => {
+      Object.entries(clonedData[event]).forEach(([key,value]: any) => {
         this[key] = value.map(( datum ) => {
           if(!(datum instanceof Date)) {
             datum.date = parseDate(datum.date);
