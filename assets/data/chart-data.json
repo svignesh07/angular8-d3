@@ -1,0 +1,842 @@
+{
+  "daily": {
+    "sales_data": [
+      {
+        "date": "2007-02-13",
+        "label": "Apple",
+        "value": 950
+      },
+      {
+        "date": "2007-03-27",
+        "label": "Amazon",
+        "value": 1000
+      },
+      {
+        "date": "2008-03-20",
+        "label": "Google",
+        "value": 700
+      },
+      {
+        "date": "2009-06-30",
+        "label": "Boeing",
+        "value": 534
+      },
+      {
+        "date": "2009-07-13",
+        "label": "Flipkart",
+        "value": 1423
+      },
+      {
+        "date": "2011-01-11",
+        "label": "Quora",
+        "value": 1222
+      },
+      {
+        "date": "2012-01-11",
+        "label": "Nestlé",
+        "value": 948
+      },
+      {
+        "date": "2013-03-14",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "date": "2013-07-29",
+        "label": "Oracle",
+        "value": 1245
+      },
+      {
+        "date": "2013-09-09",
+        "label": "Zara",
+        "value": 888
+      }
+    ],
+    "new_sales_data": [
+      {
+        "date": "2007-02-13",
+        "label": "Apple",
+        "value": 200
+      },
+      {
+        "date": "2007-03-27",
+        "label": "Amazon",
+        "value": 104
+      },
+      {
+        "date": "2008-03-20",
+        "label": "Google",
+        "value": 412
+      },
+      {
+        "date": "2009-06-30",
+        "label": "Boeing",
+        "value": 900
+      },
+      {
+        "date": "2009-07-13",
+        "label": "Flipkart",
+        "value": 1300
+      },
+      {
+        "date": "2011-01-11",
+        "label": "Quora",
+        "value": 120
+      },
+      {
+        "date": "2012-01-11",
+        "label": "Nestlé",
+        "value": 0
+      },
+      {
+        "date": "2013-03-14",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "date": "2013-07-29",
+        "label": "Oracle",
+        "value": 300
+      },
+      {
+        "date": "2013-09-09",
+        "label": "Zara",
+        "value": 312
+      }
+    ],
+    "payments_data": [
+      {
+        "date": "2005-11-05",
+        "label": "Apple",
+        "value": 767
+      },
+      {
+        "date": "2005-12-12",
+        "label": "Amazon",
+        "value": 921
+      },
+      {
+        "date": "2007-01-18",
+        "label": "Quora",
+        "value": 213
+      },
+      {
+        "date": "2007-03-06",
+        "label": "Nestlé",
+        "value": 312
+      },
+      {
+        "date": "2007-03-07",
+        "label": "Tesla",
+        "value": 666
+      },
+      {
+        "date": "2007-06-07",
+        "label": "Oracle",
+        "value": 942
+      },
+      {
+        "date": "2007-10-10",
+        "label": "Zara",
+        "value": 1000
+      },
+      {
+        "date": "2019-03-19",
+        "label": "Google",
+        "value": 31
+      },
+      {
+        "date": "2019-03-22",
+        "label": "Boeing",
+        "value": 89
+      },
+      {
+        "date": "2019-06-12",
+        "label": "Flipkart",
+        "value": 999
+      }
+    ],
+    "refunds_data": [
+      {
+        "date": "2007-10-18",
+        "label": "Apple",
+        "value": 1719
+      },
+      {
+        "date": "2008-07-02",
+        "label": "Amazon",
+        "value": 1800
+      },
+      {
+        "date": "2009-03-18",
+        "label": "Google",
+        "value": 1700
+      },
+      {
+        "date": "2009-07-22",
+        "label": "Boeing",
+        "value": 1600
+      },
+      {
+        "date": "2010-02-17",
+        "label": "Flipkart",
+        "value": 1500
+      },
+      {
+        "date": "2010-05-06",
+        "label": "Quora",
+        "value": 1400
+      },
+      {
+        "date": "2011-03-28",
+        "label": "Nestlé",
+        "value": 1300
+      },
+      {
+        "date": "2012-01-24",
+        "label": "Tesla",
+        "value": 1200
+      },
+      {
+        "date": "2012-11-13",
+        "label": "Oracle",
+        "value": 1100
+      },
+      {
+        "date": "2013-06-24",
+        "label": "Zara",
+        "value": 1000
+      }
+    ]
+  },
+  "3_months": {
+    "sales_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 950
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 1000
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 700
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 534
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1423
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 1222
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 948
+      },
+      {
+        "year": "2007",
+        "label": "Nestlé",
+        "value": 121
+      },
+      {
+        "year": "2008",
+        "label": "Nestlé",
+        "value": 44
+      },
+      {
+        "year": "2009",
+        "label": "Nestlé",
+        "value": 1090
+      }
+    ],
+    "new_sales_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 200
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 104
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 412
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 900
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1300
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 120
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 0
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 300
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 312
+      }
+    ],
+    "payments_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 767
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 921
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 31
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 89
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 999
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 213
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 312
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 666
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 942
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 1000
+      }
+    ],
+    "refunds_data": [
+      {
+        "year": "2000",
+        "label": "Quora",
+        "value": 1400
+      },
+      {
+        "year": "2001",
+        "label": "Nestlé",
+        "value": 1300
+      },
+      {
+        "year": "2002",
+        "label": "Tesla",
+        "value": 1200
+      },
+      {
+        "year": "2003",
+        "label": "Oracle",
+        "value": 1100
+      },
+      {
+        "year": "2004",
+        "label": "Zara",
+        "value": 1000
+      },
+      {
+        "year": "2005",
+        "label": "Apple",
+        "value": 1719
+      },
+      {
+        "year": "2006",
+        "label": "Amazon",
+        "value": 1800
+      },
+      {
+        "year": "2007",
+        "label": "Google",
+        "value": 1700
+      },
+      {
+        "year": "2008",
+        "label": "Boeing",
+        "value": 1600
+      },
+      {
+        "year": "2009",
+        "label": "Flipkart",
+        "value": 1500
+      }
+    ]
+  },
+  "6_months": {
+    "sales_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 950
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 1000
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 700
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 534
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1423
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 1222
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 948
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 1245
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 888
+      }
+    ],
+    "new_sales_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 200
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 104
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 412
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 900
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1300
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 120
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 0
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 300
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 312
+      }
+    ],
+    "payments_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 767
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 921
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 31
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 89
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 999
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 213
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 312
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 666
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 942
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 1000
+      }
+    ],
+    "refunds_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 1719
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 1800
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 1700
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 1600
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1500
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 1400
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 1300
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 1200
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 1100
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 1000
+      }
+    ]
+  },
+  "12_months": {
+    "sales_data": [
+      {
+        "year": "2000",
+        "label": "Quora",
+        "value": 1222
+      },
+      {
+        "year": "2001",
+        "label": "Nestlé",
+        "value": 948
+      },
+      {
+        "year": "2002",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "year": "2003",
+        "label": "Oracle",
+        "value": 1245
+      },
+      {
+        "year": "2004",
+        "label": "Zara",
+        "value": 888
+      },
+      {
+        "year": "2005",
+        "label": "Apple",
+        "value": 950
+      },
+      {
+        "year": "2006",
+        "label": "Amazon",
+        "value": 1000
+      },
+      {
+        "year": "2007",
+        "label": "Google",
+        "value": 700
+      },
+      {
+        "year": "2008",
+        "label": "Boeing",
+        "value": 534
+      },
+      {
+        "year": "2009",
+        "label": "Flipkart",
+        "value": 1423
+      }
+    ],
+    "new_sales_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 200
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 104
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 412
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 900
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1300
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 120
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 0
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 1591
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 300
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 312
+      }
+    ],
+    "payments_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 767
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 921
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 1719
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 89
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 999
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 213
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 312
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 666
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 942
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 1000
+      }
+    ],
+    "refunds_data": [
+      {
+        "year": "2000",
+        "label": "Apple",
+        "value": 1719
+      },
+      {
+        "year": "2001",
+        "label": "Amazon",
+        "value": 1800
+      },
+      {
+        "year": "2002",
+        "label": "Google",
+        "value": 1700
+      },
+      {
+        "year": "2003",
+        "label": "Boeing",
+        "value": 1600
+      },
+      {
+        "year": "2004",
+        "label": "Flipkart",
+        "value": 1500
+      },
+      {
+        "year": "2005",
+        "label": "Quora",
+        "value": 1400
+      },
+      {
+        "year": "2006",
+        "label": "Nestlé",
+        "value": 1300
+      },
+      {
+        "year": "2007",
+        "label": "Tesla",
+        "value": 1200
+      },
+      {
+        "year": "2008",
+        "label": "Oracle",
+        "value": 1100
+      },
+      {
+        "year": "2009",
+        "label": "Zara",
+        "value": 1000
+      }
+    ]
+  }
+}
