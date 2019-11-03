@@ -2,6 +2,8 @@
   margin: 1em auto;
   .btn {
     &.active {
+      pointer-events: none;
+      cursor: default;
       &:focus {
         box-shadow: none;
       }

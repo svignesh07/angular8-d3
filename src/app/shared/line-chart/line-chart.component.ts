@@ -33,7 +33,6 @@ export class LineChartComponent implements OnInit, OnDestroy {
   private area;
 
   DURATION = 1000;
-  DELAY = 300;
 
   startData: any; // Initial Data for the Transition
 
@@ -49,15 +48,15 @@ export class LineChartComponent implements OnInit, OnDestroy {
           value : Math.min(...this.chartData.map((d) => d.value))
         };
       });
-
-      setTimeout(() => {
-        this.initSvg();
-        this.initAxis();
-        this.drawAxis();
-        this.drawLine();
-        this.drawArea();
-      }, 100);
     }
+  }
+
+  ngAfterViewInit() {
+    this.initSvg();
+    this.initAxis();
+    this.drawAxis();
+    this.drawLine();
+    this.drawArea();
   }
 
   private initSvg() {

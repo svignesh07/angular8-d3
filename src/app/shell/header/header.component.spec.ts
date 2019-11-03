@@ -24,4 +24,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the app name "ANGULAR 8 + D3".', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.navbar-brand').textContent).toContain('ANGULAR 8 + D3');
+  });
+
 });

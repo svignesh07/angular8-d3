@@ -14,6 +14,7 @@ export class DateFiltersComponent implements OnInit {
 
   ngOnInit() {
     // Emit the initial date_filter value to Home Component
+    // Need to write it without a setTimeout
     setTimeout(()=>{
       this.date_filter = "daily";
       this.dateFilterChangeEvent.emit(this.date_filter);
@@ -22,8 +23,11 @@ export class DateFiltersComponent implements OnInit {
   }
 
   changeFilter(value) {
-    this.date_filter = value;
-    this.dateFilterChangeEvent.emit(value);
+    // Emit only if the value is different from the current value
+    if(value !== this.date_filter) {
+      this.date_filter = value;
+      this.dateFilterChangeEvent.emit(value);
+    }
   }
 
 }
