@@ -5,6 +5,7 @@ $chart-blue : #6bb7c7;
     width: 100%;
     margin: 1em auto;
     .chart {
+      min-height: 300px;
       padding: 1em;
       &--headbar {
         position: relative;
@@ -22,4 +23,14 @@ $chart-blue : #6bb7c7;
 
 .bar-line-label {
   font-size: 0.75em;
+}
+
+.line {
+  fill: none;
+  stroke: #b9460f;
+  stroke-width: 3;
+}
+
+.dot {
+  fill: #b9460f;
 }

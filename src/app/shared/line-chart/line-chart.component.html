@@ -2,9 +2,9 @@
   <div class="card chart">
     <h5 class="chart--headline">{{chartTitle}}</h5>
     <div id="lineChart" #container>
-        <div *ngIf="is_loading; else showChart">
-          <app-loader [is_loading]="is_loading"></app-loader>
-        </div>
+        <app-loader *ngIf="is_loading; else showChart"
+                    [is_loading]="is_loading"
+                    [message]="'Please wait'"></app-loader>
         <ng-template #showChart>
           <svg [id]="elementId" class="lineChart--svg" [attr.width]="container.offsetWidth" height="250">
             <defs>

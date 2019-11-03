@@ -4,10 +4,9 @@ import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
 import * as d3Array from 'd3-array';
-import * as d3Interpolate from 'd3-interpolate';
-import * as d3Transition from 'd3-transition';
 import * as d3Axis from 'd3-axis';
-import * as d3Format from 'd3-format';
+import * as d3Transition from 'd3-transition';
+import * as d3Ease from 'd3-ease';
 import * as d3ScaleChromatic from 'd3-scale-chromatic';
 
 @Component({
@@ -20,12 +19,35 @@ export class BarLineChartComponent {
 
   @Input() elementId: String;
   @Input() chartTitle: any;
-  @Input() chartData: any;
   @ViewChild('container', { static: true }) container: ElementRef;
   is_loading = true;
+  private _chartData: any;
+  get chartData(): any {
+    return this._chartData;
+  }
+
+  @Input('chartData')
+  set chartData(val: any) {
+    this._chartData = val;
+
+    if (!!this.chartData) {
+      this.is_loading = false;
+      setTimeout(() => {
+        if(this.svg){
+          this.resetSvg();
+        }
+        this.initSvg();
+        this.drawAxis();
+        this.drawBars();
+        this.drawLine();
+      }, 100);
+    }
+  }
 
   private margin = { top: 20, right: 20, bottom: 30, left: 50 };
   private svg: any;
+  private g: any;
+  private bar: any;
   private width: number;
   private height: number;
   private x: number;
@@ -33,17 +55,11 @@ export class BarLineChartComponent {
   greyColor = "#898989";
   barColor = d3ScaleChromatic.interpolateInferno(0.8);
   highlightColor = d3ScaleChromatic.interpolateInferno(0.9);
+
   constructor() { }
 
-  ngOnInit() {
-    if (!!this.chartData) {
-      this.is_loading = false;
-      setTimeout(() => {
-        this.initSvg();
-        this.drawAxis();
-        this.drawBars();
-      }, 100);
-    }
+  resetSvg() {
+    this.svg.remove();
   }
 
   initSvg() {
@@ -51,6 +67,7 @@ export class BarLineChartComponent {
       .append('g')
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
   }
+
 
   private drawAxis() {
     this.width = this.container.nativeElement.offsetWidth - this.margin.left - this.margin.right;
@@ -65,12 +82,14 @@ export class BarLineChartComponent {
               .range([this.height, 0])
               .domain([0, Math.max(...this.chartData.map((d) => d.value))]);;
 
-    this.svg.append('g')
+    this.g = this.svg.append("g");
+
+    this.g.append('g')
       .attr('class', 'axis axis--x')
       .attr('transform', 'translate(0,' + this.height + ')')
       .call(d3Axis.axisBottom(this.x));
 
-    this.svg.append('g')
+    this.g.append('g')
       .attr('class', 'axis axis--y')
       .call(d3Axis.axisLeft(this.y))
       .append('text')
@@ -83,12 +102,12 @@ export class BarLineChartComponent {
 
   }
 
-
   drawBars() {
+    this.bar =  this.g.selectAll("rect")
+                  .data(this.chartData)
+                  .enter().append("g");
 
-    this.svg.selectAll(".bar")
-      .data(this.chartData)
-      .enter().append("rect")
+    this.bar.append("rect")
       .attr("class", "bar")
       .style("display", d => { return d.value === null ? "none" : null; })
       .style("fill", d => {
@@ -125,31 +144,28 @@ export class BarLineChartComponent {
       .attr("y", d => (this.y(d.value) + .1))
       .attr("dx", "-.5em")
       .attr("dy", "-.7em")
-      .on("end", () => {
-        this.drawLine();
-      });
   }
 
   drawLine() {
-    console.log("Inside Draw Line");
-    let bar = this.svg.selectAll("rect.bar")
-            .data(this.chartData)
-            .enter().append("g");
-
-      let line = d3Shape.line()
-      .x((d: any) => this.x(d.date))
-      .y((d: any) => this.y(d.value))
+    let line = d3Shape.line()
+      .x((d: any) => this.x(d.year) + this.x.bandwidth() / 2)
+      .y((d: any) => this.y(d.value / 2))
       .curve(d3Shape.curveMonotoneX);
 
+    this.bar.append("path")
+      .attr("class", "line") // Assign a class for styling
+      .attr("d", line(this.chartData))
 
-    bar.append("path")
-      .attr("class", "line awesome-line") // Assign a class for styling
-      .attr("d", line(this.chartData)); // 11. Calls the line generator
+      d3Transition.transition().select(`.line`)
+      .transition()
+      .duration(2000)
+      .ease(d3Ease.easeLinear)
+      .attr("stroke-dashoffset", 0);
 
-    bar.append("circle") // Uses the enter().append() method
+    this.bar.append("circle") // Uses the enter().append() method
       .attr("class", "dot") // Assign a class for styling
-      .attr("cx", function (d, i) { return this.x(d.year) + this.x.bandwidth() / 2; })
-      .attr("cy", function (d) { return this.y(d.value); })
+      .attr("cx", (d, i) =>  this.x(d.year) + this.x.bandwidth() / 2)
+      .attr("cy", (d) =>  this.y(d.value / 2))
       .attr("r", 5);
 
   }

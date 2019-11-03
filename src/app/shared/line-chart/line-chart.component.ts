@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
@@ -14,11 +14,12 @@ import * as d3Axis from 'd3-axis';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent implements OnInit, OnDestroy {
 
+  @Input() chartData: any;
   @Input() elementId: String;
   @Input() chartTitle: any;
-  @Input() chartData: any;
+
   @ViewChild('container', { static: true }) container: ElementRef;
   is_loading = true;
 
@@ -31,12 +32,13 @@ export class LineChartComponent implements OnInit {
   private line: d3Shape.Line<[number, number]>;
   private area;
 
-  DURATION = 1500;
-  DELAY = 500;
+  DURATION = 1000;
+  DELAY = 300;
 
   startData: any; // Initial Data for the Transition
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     if (!!this.chartData) {
@@ -219,5 +221,12 @@ export class LineChartComponent implements OnInit {
       .attr('y', this.margin.top + 50)
       .text(data.value);
   }
+
+  ngOnDestroy() {
+    if(!!this.svg) {
+      this.svg.selectAll("*").remove();
+    }
+  }
+
 
 }

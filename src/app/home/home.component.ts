@@ -15,23 +15,28 @@ export class HomeComponent {
   refunds_data: Array<Object>;
   activeTab: any;
 
-  constructor(private fetchData: FetchDataService) {}
-
-  // Update charts data with new data
-  onDateFilterChange(event) {
-    this.activeTab = event;
-    var parseDate = d3TimeFormat.timeParse("%Y-%m-%d");
-
+  constructor(private fetchData: FetchDataService) {
     this.fetchData.fetchChartData().then((response) => {
-
-      Object.entries(response[event]).forEach(([key,value]) => {
-        this[key] = value.map(( datum ) => {
-          datum.date = parseDate(datum.date);
-          return datum;
-        });
-      })
+      this.data = response;
     });
 
   }
 
+  // Update charts data with new data
+  async onDateFilterChange(event) {
+    this.activeTab = event;
+    let parseDate = d3TimeFormat.timeParse("%Y-%m-%d");
+
+    if(!!this.data) {
+      let clonedData = JSON.parse(JSON.stringify(this.data)); // Javascript Deep Copy
+      Object.entries(clonedData[event]).forEach(([key,value]) => {
+        this[key] = value.map(( datum ) => {
+          if(!(datum instanceof Date)) {
+            datum.date = parseDate(datum.date);
+          }
+          return datum;
+        });
+      });
+    }
+  }
 }
