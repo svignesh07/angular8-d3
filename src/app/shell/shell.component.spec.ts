@@ -25,4 +25,9 @@ describe('ShellComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the header component', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-header')).not.toBe(null);
+  });
 });

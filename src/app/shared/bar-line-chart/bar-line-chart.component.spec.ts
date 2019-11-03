@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BarLineChartComponent } from './bar-line-chart.component';
+import { LoaderComponent } from '../loader/loader.component';
 
 describe('BarLineChartComponent', () => {
   let component: BarLineChartComponent;
@@ -8,7 +9,7 @@ describe('BarLineChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BarLineChartComponent ]
+      declarations: [ BarLineChartComponent, LoaderComponent ]
     })
     .compileComponents();
   }));
