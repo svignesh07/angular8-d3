@@ -4,12 +4,33 @@ $chart-blue : #6bb7c7;
   &--container {
     width: 100%;
     margin: 1em auto;
-    .chart {
+    .bar-chart {
       min-height: 300px;
       padding: 1em;
       &--headbar {
         position: relative;
       }
+      .tick {
+        @media (max-width: 768px) {
+          &:nth-child(2n + 1) {
+            display: none;
+          }
+        }
+      }
+
+      .bar-line-label {
+        font-size: 0.75em;
+      }
+
+      .line {
+        stroke: #b9460f;
+        stroke-width: 3;
+      }
+
+      .dot {
+        fill: #b9460f;
+      }
+
     }
 
   }
@@ -21,16 +42,15 @@ $chart-blue : #6bb7c7;
   }
 }
 
-.bar-line-label {
-  font-size: 0.75em;
-}
 
 .line {
-  fill: none;
-  stroke: #b9460f;
-  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear forwards;
 }
 
-.dot {
-  fill: #b9460f;
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }

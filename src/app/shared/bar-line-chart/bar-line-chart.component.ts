@@ -155,16 +155,12 @@ export class BarLineChartComponent {
     this.bar.append("path")
       .attr("class", "line") // Assign a class for styling
       .attr("d", line(this.chartData))
+      .attr("fill", "none");
 
-      d3Transition.transition().select(`.line`)
-      .transition()
-      .duration(2000)
-      .ease(d3Ease.easeLinear)
-      .attr("stroke-dashoffset", 0);
 
     this.bar.append("circle") // Uses the enter().append() method
       .attr("class", "dot") // Assign a class for styling
-      .attr("cx", (d, i) =>  this.x(d.year) + this.x.bandwidth() / 2)
+      .attr("cx", (d) =>  this.x(d.year) + this.x.bandwidth() / 2)
       .attr("cy", (d) =>  this.y(d.value / 2))
       .attr("r", 5);
 
