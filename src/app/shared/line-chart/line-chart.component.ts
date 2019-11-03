@@ -52,11 +52,13 @@ export class LineChartComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.initSvg();
-    this.initAxis();
-    this.drawAxis();
-    this.drawLine();
-    this.drawArea();
+    if (!!this.chartData) {
+      this.initSvg();
+      this.initAxis();
+      this.drawAxis();
+      this.drawArea();
+      this.drawLine();
+    }
   }
 
   private initSvg() {

@@ -9,9 +9,9 @@ describe('LineChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LineChartComponent, LoaderComponent ]
+      declarations: [LineChartComponent, LoaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,4 +23,5 @@ describe('LineChartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
